@@ -195,11 +195,13 @@ body{
     flex: 1;
     margin-left: 15px;
     word-wrap: break-word;
+    min-width: 0;
 }
 
 .task-buttons{
     display: flex;
     gap: 10PX;
+    flex-shrink: 0;
     margin-right: auto;
 }
 
