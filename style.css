@@ -138,8 +138,8 @@ body{
 
 .todos-container{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;   /* 垂直排版 */
+    align-items: stretch;  
     width: 100%;
 }
 
@@ -148,6 +148,7 @@ body{
 }
 
 #task-list li{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -160,6 +161,14 @@ body{
     position: relative;
     transition: box-shadow 0.2s ease;
 
+}
+
+#task-list .placeholder {
+  visibility: hidden;     /* 看不到但仍佔位 */
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
 #task-list li:hover{

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const updateProgress = (checkCompletion = true) => {
-        const totalTasks = taskList.children.length;
+        const totalTasks = taskList.querySelectorAll('li:not(.placeholder)').length;
         const completedTasks = taskList.querySelectorAll('.checkbox:checked').length
 
         progressBar.style.width = totalTasks ? `${(completedTasks / totalTasks) * 100}%` : '0%';
@@ -134,6 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
         taskInput.value = '';
         updateProgress(checkCompletion);
         saveTaskToLocalStorage();
+
+        requestAnimationFrame(() => {
+            taskList.style.display = 'none';
+            taskList.offsetHeight; // force reflow
+            taskList.style.display = '';
+        });
+
+
     };
 
     addTaskBtn.addEventListener('click', (e) => addTask(e));
